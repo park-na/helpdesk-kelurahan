@@ -59,7 +59,7 @@
             min-height: 100vh;
             background:
                 linear-gradient(180deg, rgba(13,27,54,0) 0%, rgba(13,27,54,0.15) 42%, rgba(13,27,54,0.78) 62%, rgba(13,27,54,0.97) 80%, #0D1B36 100%),
-                url('{{ asset('images/kantor_kelurahan_cibeureum.jpg') }}') center / cover no-repeat;
+                url('{{ asset('images/kantorkelurahan.jpg') }}') center / cover no-repeat;
         }
 
         .auth-visual-text {
@@ -212,10 +212,10 @@
 
             <div class="auth-visual-text">
 
-                <h2>Sistem Pengaduan<br>Barang Rusak</h2>
+                <h2>SIPENDAK</h2>
 
                 <div class="auth-visual-sub">
-                    Kelurahan Cibeureum
+                    Sistem Pengaduan & Penanganan Perangkat Rusak
                 </div>
 
                 <div class="auth-visual-desc">
