@@ -154,6 +154,15 @@
             padding: 0.65rem 0.9rem;
             margin-bottom: 1rem;
         }
+        .alert-success {
+            background: #E5F6F1;
+            color: #0F8F6C;
+            border: 1px solid #CFEEE3;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            padding: 0.65rem 0.9rem;
+            margin-bottom: 1rem;
+        }
 
         .auth-footer-link {
             text-align: center;
@@ -242,6 +251,14 @@
                     Masuk untuk melanjutkan
                 </p>
 
+                @if(session('success'))
+
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+
+                @endif
+
                 @if($errors->any())
 
                     <div class="alert alert-danger">
@@ -273,7 +290,7 @@
 
                     </div>
 
-                    <div class="input-icon-group mb-4">
+                    <div class="input-icon-group mb-2">
 
                         <span class="field-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>
@@ -287,6 +304,12 @@
                             required
                         >
 
+                    </div>
+
+                    <div class="text-end mb-4">
+                        <a href="{{ route('password.request') }}" style="font-size:0.85rem; color:var(--accent); font-weight:600; text-decoration:none;">
+                            Lupa password?
+                        </a>
                     </div>
 
                     <button

@@ -305,6 +305,20 @@
         .btn-logout { border-color: #F0D3BC; color: #8A5A3C; }
         .btn-logout:hover { background: #FFE3CC; color: #3F2716; border-color: #FFE3CC; }
 
+        /* NAMA STAF = LINK PROFIL */
+        .user-link {
+            display: block;
+            flex: 1;
+            min-width: 0;
+            padding: 0.4rem 0.55rem;
+            margin: -0.4rem 0 -0.4rem -0.55rem;
+            border-radius: 8px;
+            text-decoration: none;
+        }
+        .user-link:hover { background: #FFE3CC; }
+        .user-link.active { background: #FFD9B8; }
+        .user-link.active .user-name { color: #B34700; }
+
         /* PROFIL */
         .btn-dark { background: var(--ink); border-color: var(--ink); }
         .btn-dark:hover { background: #0F172A; border-color: #0F172A; }
@@ -340,7 +354,7 @@
 
             <a
                 href="{{ route('staff.tickets.index') }}"
-                class="nav-link {{ request()->routeIs('staff.tickets.index', 'staff.tickets.show') ? 'active' : '' }}"
+                class="nav-link {{ request()->routeIs('staff.tickets.index') ? 'active' : '' }}"
             >
                 <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
                 Dashboard
@@ -355,11 +369,11 @@
             </a>
 
             <a
-                href="{{ route('staff.profile.edit') }}"
-                class="nav-link {{ request()->routeIs('staff.profile.*') ? 'active' : '' }}"
+                href="{{ route('staff.tickets.index') }}#pengaduan-saya"
+                class="nav-link {{ request()->routeIs('staff.tickets.show') ? 'active' : '' }}"
             >
-                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20c0-4 3.6-6 8-6s8 2 8 6"/><circle cx="12" cy="7" r="4"/></svg></span>
-                Profil Saya
+                <span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg></span>
+                Pengaduan Saya
             </a>
 
         </nav>
@@ -367,10 +381,14 @@
 
         <div class="sidebar-footer">
 
-            <div>
+            <a
+                href="{{ route('staff.profile.edit') }}"
+                class="user-link {{ request()->routeIs('staff.profile.*') ? 'active' : '' }}"
+                title="Lihat profil"
+            >
                 <div class="user-name">{{ auth()->user()->name }}</div>
                 <div class="user-role">Staf</div>
-            </div>
+            </a>
 
             <form method="POST" action="{{ route('logout') }}">
 
